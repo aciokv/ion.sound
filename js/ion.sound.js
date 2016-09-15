@@ -111,6 +111,7 @@
         settings.loop = settings.loop || false;
         settings.sprite = settings.sprite || null;
         settings.scope = settings.scope || null;
+        settings.no_cache = settings.no_cache || true;
         settings.ready_callback = settings.ready_callback || null;
         settings.ended_callback = settings.ended_callback || null;
 
@@ -255,7 +256,7 @@
 
         createUrl: function () {
             var no_cache = new Date().valueOf();
-            this.url = this.options.path + encodeURIComponent(this.options.name) + "." + this.options.supported[this.ext] + "?" + no_cache;
+            this.url = this.options.path + encodeURIComponent(this.options.name) + "." + this.options.supported[this.ext] + ((this.options.no_cache) ? "?" + no_cache : '');
         },
 
         load: function () {
